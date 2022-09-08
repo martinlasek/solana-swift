@@ -97,6 +97,18 @@ public struct RequestConfiguration: Encodable {
         until: String? = nil,
         skipPreflight: Bool = false
     ) {
+
+        if
+            commitment == nil,
+            encoding == nil,
+            dataSlice == nil,
+            filters == nil,
+            limit == nil,
+            before == nil,
+            until == nil {
+            return nil
+        }
+
         self.commitment = commitment
         self.encoding = encoding
         self.dataSlice = dataSlice
